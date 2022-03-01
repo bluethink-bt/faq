@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+     <menu>
+          <add id="Bluethink_Faq::faqmenu"
+             title="FAQ"
+             module="Bluethink_Faq"
+             sortOrder="20"
+             resource="Bluethink_Faq::FaqMenu" />
+          <add id="Bluethink_Faq::faqgroup" 
+             title="Manage Faq Group" 
+             module="Bluethink_Faq" 
+             sortOrder="10" 
+             action="adminfaq/faqgroup/index" 
+             resource="Bluethink_Faq::FaqGroup" 
+             parent="Bluethink_Faq::faqmenu"/>
+          <add id="Bluethink_Faq::faq" 
+             title="Manage Faq" 
+             module="Bluethink_Faq" 
+             sortOrder="20" 
+             action="adminfaq/faq/index" 
+             resource="Bluethink_Faq::Faq" 
+             parent="Bluethink_Faq::faqmenu"/>
+          <add id="Bluethink_Faq::faquser" 
+             title="Manage Faq User" 
+             module="Bluethink_Faq" 
+             sortOrder="30" 
+             action="adminfaq/faquser/index" 
+             resource="Bluethink_Faq::FaqUser" 
+             parent="Bluethink_Faq::faqmenu"/>
+          <add id="Bluethink_Faq::configration" 
+             title="Configration" 
+             module="Bluethink_Faq" 
+             sortOrder="40" 
+             action="adminhtml/system_config/edit/section/faqtab" 
+             resource="Bluethink_Faq::Configration" 
+             parent="Bluethink_Faq::faqmenu"/>      
+     </menu>
+</config>

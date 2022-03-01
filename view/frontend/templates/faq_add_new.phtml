@@ -1,0 +1,20 @@
+<div class="new-faq-form">
+    <form id="frm_add_faq" action="" method="POST">
+        <div class="new-faq">
+            <div class="new-faq-ques-label">
+                <label>Ask Your Question :</label>
+            </div>
+            <div class="new-faq-ques-text">
+                <input type="text" id="new_ques" name="title"/>
+                <input type="hidden" id="url"
+                       value="<?= $block->escapeUrl($block->getUrl("faq/index/adduserfaq")); ?>"/>
+            </div>
+            <div class="new-faq-ques-submit">
+                <input class="form-submit-button" type="submit" id="submit" name="submit" Value="SUBMIT"/>
+                <div class="faq-msg" id="msg">*</div>
+            </div>
+
+        </div>
+    </form>
+</div>
+

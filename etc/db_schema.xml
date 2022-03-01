@@ -1,0 +1,64 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!-- FAQ group Table -->
+    <table name="bluethink_faqgroup">
+        <column xsi:type="int" name="faqgroup_id" padding="10" unsigned="true" identity="true" nullable="false" comment="Entity Id"/>
+        <column xsi:type="varchar" name="groupname" nullable="true" length="255" comment="Group Name"/>
+        <column xsi:type="varchar" name="icon" nullable="true" length="255" comment="Icon"/>
+        <column xsi:type="varchar" name="storeview" nullable="true" length="255" comment="Store View"/>
+        <column xsi:type="varchar" name="customer_group" nullable="true" length="255" comment="Customer Group"/>
+        <column xsi:type="int" name="sortorder" nullable="true" comment="Sort Order"/>
+        <column xsi:type="tinyint" name="status" nullable="true" comment="Status"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="FAQ Group Created At"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="true" default="CURRENT_TIMESTAMP" on_update="true" comment="FAQ Group Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="faqgroup_id"/>
+        </constraint>
+        <index referenceId="BLUETHINK_FAQGROUP_FAQGROUP_ID" indexType="btree">
+            <column name="faqgroup_id"/>
+        </index>
+    </table>
+    
+    <!-- FAQ group Table -->
+    <table name="bluethink_faq">
+        <column xsi:type="int" name="faq_id" padding="10" unsigned="true" identity="true" nullable="false" comment="Entity Id"/>
+        <column xsi:type="varchar" name="title" nullable="true" length="255" comment="Title"/>
+        <column xsi:type="varchar" name="content" nullable="true" length="255" comment="Content"/>
+        <column xsi:type="varchar" name="group" nullable="true" length="255" comment="Faq Group"/>
+        <column xsi:type="varchar" name="storeview" nullable="true" length="255" comment="Store View"/>
+        <column xsi:type="varchar" name="customer_group" nullable="true" length="255" comment="Customer Group"/>
+        <column xsi:type="int" name="sortorder" nullable="true" comment="Sort Order"/>
+        <column xsi:type="tinyint" name="status" nullable="true" comment="Status"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="FAQ Created At"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="true" default="CURRENT_TIMESTAMP" on_update="true" comment="FAQ Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="faq_id"/>
+        </constraint>
+        <index referenceId="BLUETHINK_FAQ_FAQ_ID" indexType="btree">
+            <column name="faq_id"/>
+        </index>
+    </table>
+
+    <!-- New User Faq Table -->
+    <table name="bluethink_faq_user">
+        <column xsi:type="int" name="user_faq_id" padding="10" unsigned="true" identity="true" nullable="false" comment="Entity Id"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
+        <column xsi:type="varchar" name="content" nullable="true" length="255" comment="Content"/>
+        <column xsi:type="varchar" name="group" nullable="true" length="255" comment="Faq Group"/>
+        <column xsi:type="varchar" name="storeview" nullable="true" length="255" comment="Store View"/>
+        <column xsi:type="varchar" name="customer_group" nullable="true" length="255" comment="Customer Group"/>
+        <column xsi:type="int" name="sortorder" nullable="true" comment="Sort Order"/>
+        <column xsi:type="tinyint" name="status" nullable="true" comment="Status"/>
+        <column xsi:type="tinyint" name="authorize_status" nullable="true" comment="Authorized Status"/>
+        <column xsi:type="tinyint" name="decline_status" nullable="true" comment="Declined Status"/>
+        <column xsi:type="tinyint" name="added_status" nullable="true" comment="Added Status"/>
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="false" comment="New FAQ Created At"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="true" default="CURRENT_TIMESTAMP" on_update="true" comment="New FAQ Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="user_faq_id"/>
+        </constraint>
+        <index referenceId="BLUETHINK_FAQ_ADD_NEW_USER_FAQ_ID" indexType="btree">
+            <column name="user_faq_id"/>
+        </index>
+    </table>
+</schema>

@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="faqgroup-container">
+        <?php
+        $faqGroupCollection = $block->getFaqGroupCollection();
+        if ($faqGroupCollection->getSize()) {
+            foreach ($faqGroupCollection as $faqGroup) {
+                if ($faqGroup->getStatus()) {
+                    ?>
+                    <a class="faqgroup-section-title faqgroup-section"
+                       href="#faqgroup-<?= $block->escapeHtmlAttr($faqGroup->getFaqgroupId());?>">
+                        <div class="faqgroup-section-title-content">
+                            <img src="<?= /* @noEscape */
+                            $block->getMediaUrl() . $faqGroup->getIcon(); ?>" width="40" height="40">
+                            <?= $block->escapeHtmlAttr($faqGroup->getGroupname()); ?>
+                        </div>
+                    </a>
+                    <?php
+                }
+            }
+        } else { ?>
+            <div class="faqgroup-section-title-content-empty">
+                No Faq Groups Available
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+    <div class="faq-container">
+        <?php
+        if ($faqGroupCollection->getSize()) {
+            foreach ($faqGroupCollection as $faqGroup) {
+                if ($faqGroup->getStatus()) { ?>
+                    <div class="faqgroup-section-content"
+                         id="faqgroup-<?= $block->escapeHtmlAttr($faqGroup->getFaqgroupId()); ?>">
+                        <span class="group-name"><?= $block->escapeHtmlAttr($faqGroup->getGroupname()); ?></span>
+                        <hr style="width:100%;margin-left:0">
+                        <?php
+                        $faqCollection = $block->getFaqCollectionByGroupId($faqGroup->getFaqgroupId());
+                        if ($faqCollection->getSize()) {
+                            foreach ($faqCollection as $faq) {
+                                if ($faq->getStatus()) { ?>
+                                    <div class="faq">
+                                        <div class="faq-section">
+                                            <a class="faq-section-title"
+                                               href="#faq-<?= $block->escapeHtmlAttr($faq->getFaqId()); ?>">
+                                                <?= $block->escapeHtmlAttr($faq->getTitle()); ?>
+                                            </a>
+                                            <div id="faq-<?= $block->escapeHtmlAttr($faq->getFaqId()); ?>"
+                                                 class="faq-section-content">
+                                                <?= /* @noEscape */
+                                                $block->filterContent($faq->getContent()); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                }
+                            }
+                        } else { ?>
+                            <div class="faqgroup-section-title-content-empty">
+                                No Faq Available
+                            </div>
+                            <?php
+                        } ?>
+                    </div>
+                    <?php
+                }
+            }
+        }
+        ?>
+    </div>
+    <div class="faq-ask-ques">Click to Ask A Question</div>
+    <hr style="width:100%;margin-left:0">
+    <div class="faq-add-new">
+        <?= $block->getUserFaqBlock()->toHtml() ?>
+    </div>
+</div>

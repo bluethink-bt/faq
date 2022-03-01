@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+          <css src="Bluethink_Faq::css/faqcss.css" />
+          <script src="Bluethink_Faq::js/faqjs.js"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Bluethink\Faq\Block\Index\Faq\View" name="faq_view" template="Bluethink_Faq::faq_view.phtml" />
+        </referenceContainer>
+    </body>
+</page>

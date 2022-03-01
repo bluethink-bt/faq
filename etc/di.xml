@@ -1,0 +1,35 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="Bluethink\Faq\Api\FaqRepositoryInterface" type="Bluethink\Faq\Model\FaqRepository"/>
+    <preference for="Bluethink\Faq\Api\Data\FaqInterface" type="Bluethink\Faq\Model\Faq"/>
+    <preference for="Bluethink\Faq\Api\Data\FaqSearchResultInterface" type="Bluethink\Faq\Model\FaqSearchResult"/>
+    <preference for="Bluethink\Faq\Api\FaqGroupRepositoryInterface" type="Bluethink\Faq\Model\FaqGroupRepository"/>
+    <preference for="Bluethink\Faq\Api\Data\FaqGroupInterface" type="Bluethink\Faq\Model\FaqGroup"/>
+    <preference for="Bluethink\Faq\Api\Data\FaqGroupSearchResultInterface" type="Bluethink\Faq\Model\FaqGroupSearchResult"/>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="faqgroup_grid_data_source" xsi:type="string">Bluethink\Faq\Model\ResourceModel\FaqGroup\Grid\Collection</item>
+                <item name="faq_grid_data_source" xsi:type="string">Bluethink\Faq\Model\ResourceModel\Faq\Grid\Collection</item>
+                <item name="faquser_grid_data_source" xsi:type="string">Bluethink\Faq\Model\ResourceModel\FaqUser\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Bluethink\Faq\Model\ResourceModel\FaqGroup\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bluethink_faqgroup</argument>
+            <argument name="resourceModel" xsi:type="string">Bluethink\Faq\Model\ResourceModel\FaqGroup</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Bluethink\Faq\Model\ResourceModel\Faq\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bluethink_faq</argument>
+            <argument name="resourceModel" xsi:type="string">Bluethink\Faq\Model\ResourceModel\Faq</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Bluethink\Faq\Model\ResourceModel\FaqUser\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bluethink_faq_user</argument>
+            <argument name="resourceModel" xsi:type="string">Bluethink\Faq\Model\ResourceModel\FaqUser</argument>
+        </arguments>
+    </virtualType>
+</config>

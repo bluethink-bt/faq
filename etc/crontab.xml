@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+	<group id="faq_cron">
+		<job instance="Bluethink\Faq\Cron\UserFaqAdd" method="execute" name="bluethink_user_faq_add">
+			<schedule>* * * * *</schedule>
+		</job>
+		<job instance="Bluethink\Faq\Cron\UserFaqDelete" method="execute" name="bluethink_user_faq_delete">
+			<schedule>* * * * *</schedule>
+		</job>
+	</group>
+</config>
